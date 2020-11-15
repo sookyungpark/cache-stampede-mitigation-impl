@@ -4,10 +4,11 @@ import com.github.benmanes.caffeine.cache.Cache
 import java.util.*
 import kotlin.math.ln
 
+// this is arbitrary values
 const val POW_10_6 = 1000000
 const val EXPIRATION_COEFFICIENT = 1000
 const val EXPIRATION_LOG_X_MAX = 1f
-const val EXPIRATION_LOG_X_MIN = 0.0000001f
+const val EXPIRATION_LOG_X_MIN = 0.000001f
 
 private val random = Random()
 
