@@ -29,9 +29,7 @@ class ReactiveCaffeinePerCacheTest {
         for (x in 1..1000) {
             reactivePerCache.get(x.toString()) {
                 Mono.just("$x:v")
-            }
-                    .subscribeOn(Schedulers.boundedElastic())
-                    .subscribe()
+            }.subscribe()
         }
 
         // wait for a moment
@@ -42,10 +40,7 @@ class ReactiveCaffeinePerCacheTest {
             reactivePerCache.get(x.toString()) {
                 missCount.incrementAndGet()
                 Mono.just("$x:v")
-            }
-                    //.subscribeOn(Schedulers.parallel())
-                    .subscribeOn(Schedulers.boundedElastic())
-                    .subscribe()
+            }.subscribe()
             totalCount.incrementAndGet()
         }
 
